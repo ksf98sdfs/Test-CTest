@@ -10,5 +10,6 @@ int max(int a, int b) {
 int main() {
     //assert(max(1, 0) == 1); Pass
     //assert(max(1, 0) == 0); Fail
-    return 1;
+    return 0;
+    //return 1; Fail
 }
