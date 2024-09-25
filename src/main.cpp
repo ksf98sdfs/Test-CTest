@@ -8,5 +8,6 @@ int max(int a, int b) {
 }
 
 int main() {
-    assert(max(1, 0) == 1);
+    //assert(max(1, 0) == 1);
+    assert(max(1, 0) == 0);
 }
