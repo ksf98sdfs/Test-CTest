@@ -25,8 +25,8 @@ jobs:
         
       - name: Test project
         working-directory: ${{ github.workspace }}
-        run: ctest -T Test -T Coverage
+        run: ctest -T Test -T Coverage -C ${{ env.BUILD_TYPE }}
 
       - name: Test project
         working-directory: ${{ github.workspace }}/build
-        run: ctest -T Test -T Coverage        
+        run: ctest -T Test -T Coverage -C ${{ env.BUILD_TYPE }}
