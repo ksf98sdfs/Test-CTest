@@ -1,0 +1,29 @@
+name: Build Windows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  BUILD_TYPE: Debug
+  
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: Install Ninja
+        shell: pwsh
+        run: |
+          choco install ninja
+          
+      - uses: actions/checkout@v4
+      - name: Build project
+        run: cmake -S . -B build -G "Ninja Multi-Config" && cmake --build build --config ${{ env.BUILD_TYPE }}
+
+      - name: Test project
+        working-directory: ${{ github.workspace }}/build
+        run: ctest -T Test -T Coverage -C ${{ env.BUILD_TYPE }}
