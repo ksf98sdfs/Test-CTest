@@ -31,3 +31,5 @@ target_include_directories( ${library_name} PRIVATE
 
 enable_testing()
 add_test( NAME ${library_name} COMMAND ${library_name} )
+
+enable_coverage( ${library_name} )
